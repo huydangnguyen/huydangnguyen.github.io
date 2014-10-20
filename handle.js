@@ -65,7 +65,7 @@ function draw_and_blur(vd, context, backcontext, width, height)
 
     
     //Repeat
-    setTimeout(draw_and_blur, 20, vd, context, backcontext, width, height); 
+    setTimeout(draw_and_blur, 10, vd, context, backcontext, width, height); 
 }
 
 ////Video processing-------------------------------------------------------------------------------------------------------------------
