@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function () {
     var vd = document.getElementById('v');
     
     var canvas1 = document.getElementById('c1');
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function(){
     
     
     //xử lý sự kiện play
-    video.addEventListener('play', function(){
+    vd.addEventListener('play', function () {
         //gán size của video cho canvas         
         canvas1.width = vd.clientWidth;
         canvas1.height = vd.clientHeight;
@@ -54,18 +54,18 @@ function draw_and_blur(vd, context, backcontext, width, height)
         
         iPrev = i - step;
         iNext = i + step;
-        rData[i] = (1/9)*(pData[iPrev-4] + pData[iPrev] + pData[iPrev+4]
+        rData[i] = (pData[iPrev-4] + pData[iPrev] + pData[iPrev+4]
                     + pData[i-4] + pData[i] + pData[i+4]
-                    + pData[iNext-4] + pData[iNext] + pData[iNext+4]);
+                    + pData[iNext-4] + pData[iNext] + pData[iNext+4])/9.0;
     }    
     
         
     iData.data = rData;
     context.putImageData(iData, 0, 0);
-}
+
     
     //Repeat
-    setTimeout(function(){draw_and_blur(vd, context, backcontext, width, height)},20); 
+    setTimeout(draw_and_blur, 20, vd, context, backcontext, width, height); 
 }
 
 ////Video processing-------------------------------------------------------------------------------------------------------------------
