@@ -44,7 +44,7 @@ function draw_and_blur(vd, context, backcontext, width, height)
  
     var i;
     var iPrev;
-    var iNext = i + step;
+    var iNext;
     for (i = 0; i < pData.length; i++)
     {
         if(i%4 == 3)
@@ -60,12 +60,12 @@ function draw_and_blur(vd, context, backcontext, width, height)
     }    
     
         
-    iData.data = pData;
+    iData.data = rData;
     context.putImageData(iData, 0, 0);
 }
     
     //Repeat
-    setTimeout(function(){draw_and_blur(vd, context, backcontext, width, height)},0); 
+    setTimeout(function(){draw_and_blur(vd, context, backcontext, width, height)},20); 
 }
 
 ////Video processing-------------------------------------------------------------------------------------------------------------------
