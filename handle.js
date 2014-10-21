@@ -85,6 +85,15 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
     var iNext;
     var dx, dy;
     var step = iData.width*4;
+    
+    for (i=0; i<pData.length; i+=4)
+    {                    
+        var gray = pData[i]*0.3 + pData[i+1]*0.59 + pData[i+2]*0.11;
+        pData[i] = gray;
+        pData[i+1] = gray;
+        pData[i+2] = gray;
+    }
+    
     for (i = 0; i < pData.length; i++)
     {
         if(i%4 == 3)
