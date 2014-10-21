@@ -86,15 +86,16 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
     var dx, dy;
     var step = iData.width*4;
     
-    for (i=0; i<pData.length; i+=4)
-    {                    
-        var gray = pData[i]*0.3 + pData[i+1]*0.59 + pData[i+2]*0.11;
-        pData[i] = gray;
-        pData[i+1] = gray;
-        pData[i+2] = gray;
-    }
-    
-    for (i = 0; i < pData.length; i++)
+//    for (i=0; i<pData.length; i+=4)
+//    {                    
+//        var gray = pData[i]*0.3 + pData[i+1]*0.59 + pData[i+2]*0.11;
+//        pData[i] = gray;
+//        pData[i+1] = gray;
+//        pData[i+2] = gray;
+//    }
+//    
+    var max = 0;
+    for (i = 0; i < pData.length; i+=4)
     {
         if(i%4 == 3)
         {
@@ -104,14 +105,44 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
         iPrev = i - step;
         iNext = i + step;
         //gray = pData[i]*0.3 + pData[i+1]*0.59 + pData[i+2]*0.11;
-        dx = Math.pow(((pData[iNext - 4] - pData[iPrev - 4])/2
+        dx = Math.abs(((pData[iNext - 4] - pData[iPrev - 4])/2
                       + (pData[iNext] - pData[iPrev])/2
                       + (pData[iNext + 4] - pData[iPrev + 4])/2)/3,2);
-//        //dy = Math.pow((pData[iPrev + 4] - pData[iPrev - 4])/2
-//                      + (pData[i + 4] - pData[i - 4])/2
-//                      + (pData[iNext + 4] - pData[iNext - 4])/2,2)/3;
-        rData[i] = Math.sqrt(dx);
-    }    
+        dy = Math.pow(((pData[iPrev + 4] - pData[iPrev - 4])/2
+                      + (pData[i + 4] - pData[i - 4])/2
+                      + (pData[iNext + 4] - pData[iNext - 4])/2)/3,2);
+        rData[i] = Math.sqrt(dx + dy);
+        if(rData[i] > max)
+        {
+            max = rData[i];   
+        }
+    } 
+    
+    for (i = 0; i < rData.length, i+= 4)
+    {
+         if(i%4 == 3)
+        {
+            continue;
+        }       
+        
+        iPrev = i - step;
+        iNext = i + step;
+        if (rData[i] >= 0.8*max) 
+        {
+            rData[i] = 255;
+        }
+        else
+            rData[i] = 0;
+        
+        rData[i + 1] = rData[i];
+        rData[i + 2] = rData[i];
+        
+//        rData[i] = Math.sqrt(dx + dy);
+//        if(rData[i] > max)
+//        {
+//            max = rData[i];   
+//        }
+    }
     
         
     iData.data = rData;
