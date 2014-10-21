@@ -123,7 +123,7 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
         temp[i/4] = Math.sqrt(dx + dy);
         if(temp[i/4] > max)
         {
-            max = temp[i];   
+            max = temp[i/4];   
         }
     } 
     
@@ -134,8 +134,7 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
             continue;
         }       
         
-        iPrev = i - step;
-        iNext = i + step;
+
         if (temp[i/4] >= 0.33*max) 
         {
             rData[i] = 255;
