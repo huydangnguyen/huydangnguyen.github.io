@@ -94,13 +94,14 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
         
         iPrev = i - step;
         iNext = i + step;
+        //gray = pData[i]*0.3 + pData[i+1]*0.59 + pData[i+2]*0.11;
         dx = Math.pow((pData[iNext - 4] - pData[iPrev - 4])/2
                       + (pData[iNext] - pData[iPrev])/2
                       + (pData[iNext + 4] - pData[iPrev + 4])/2,2)/3;
-        dy = Math.pow((pData[iPrev + 4] - pData[iPrev - 4])/2
-                      + (pData[i + 4] - pData[i - 4])/2
-                      + (pData[iNext + 4] - pData[iNext - 4])/2,2)/3;
-        rData[i] = Math.sqrt(dx + dy);
+//        //dy = Math.pow((pData[iPrev + 4] - pData[iPrev - 4])/2
+//                      + (pData[i + 4] - pData[i - 4])/2
+//                      + (pData[iNext + 4] - pData[iNext - 4])/2,2)/3;
+        rData[i] = Math.sqrt(dx);
     }    
     
         
