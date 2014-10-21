@@ -95,6 +95,7 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
     }
 
     var max = 0;
+    var min = 255;
     var temp = [];
     //temp.length = pData.length/4;
     for (i = 0; i < pData.length; i+=4)
@@ -125,8 +126,13 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
         {
             max = temp[i/4];   
         }
+        if (temp[i/4] < min)
+        {
+            min = temp[i/4];   
+        }
     } 
     
+    var threshold = 0.3*(max - min) + min;
     for (i = 0; i < rData.length; i+=4)
     {
          if(i%4 == 3)
@@ -135,7 +141,7 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
         }       
         
 
-        if (temp[i/4] >= 0.1*max) 
+        if (temp[i/4] - min >= threshold) 
         {
             rData[i] = 255;
         }
