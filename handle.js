@@ -118,7 +118,7 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
         }
     } 
     
-    for (i = 0; i < rData.length, i+= 4)
+    for (i = 0; i < rData.length; i+= 4)
     {
          if(i%4 == 3)
         {
