@@ -132,7 +132,7 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
         }
     } 
     
-    var threshold = 0.3*(max - min) + min;
+    var threshold = 0.2*(max - min) + min;
     for (i = 0; i < rData.length; i+=4)
     {
          if(i%4 == 3)
