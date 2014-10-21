@@ -1,9 +1,11 @@
 
-body {
+body 
+{
     background: black;
 }
 
-#c1 {
+#c1 
+{
     position: absolute;
     top: 50%;
     right: 25%;
@@ -16,7 +18,8 @@ body {
     border-color: white;
 }
 
-#v {
+#v 
+{
     position: absolute;
     top: 50%;
     left: 25%;
