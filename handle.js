@@ -135,7 +135,7 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
         }       
         
 
-        if (temp[i/4] >= 0.2*max) 
+        if (temp[i/4] >= 0.1*max) 
         {
             rData[i] = 255;
         }
