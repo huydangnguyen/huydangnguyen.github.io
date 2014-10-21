@@ -86,6 +86,13 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
     var dx, dy;
     var step = iData.width*4;
 
+    //tính giá trị độ xám
+    for (i=0; i<pData.length; i+=4)
+    {                    
+        var gray = pData[i]*0.3 + pData[i+1]*0.59 + pData[i+2]*0.11;
+        pData[i] = gray;
+    }
+    
     //tính đạo hàm ảnh 
     var max = 0;
     var min = 255;
@@ -120,6 +127,7 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
         }
     } 
     
+    //so ngưỡng để lấy biên
     var threshold = 0.2*(max - min) + min;
     for (i = 0; i < rData.length; i+=4)
     {
