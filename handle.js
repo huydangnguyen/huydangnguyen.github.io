@@ -86,12 +86,12 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
     var dx, dy;
     var step = iData.width*4;
 
-    //tính giá trị độ xám
-    for (i=0; i<pData.length; i+=4)
-    {                    
-        var gray = pData[i]*0.3 + pData[i+1]*0.59 + pData[i+2]*0.11;
-        pData[i] = gray;
-    }
+//    //tính giá trị độ xám
+//    for (i=0; i<pData.length; i+=4)
+//    {                    
+//        var gray = pData[i]*0.3 + pData[i+1]*0.59 + pData[i+2]*0.11;
+//        pData[i] = gray;
+//    }
     
     //tính đạo hàm ảnh 
     var max = 0;
@@ -154,7 +154,7 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
 
     
     //Xử lý frame kế tiếp
-    setTimeout(draw_and_extract_edge, 20, vd, context, backcontext, width, height); 
+    setTimeout(draw_and_extract_edge, 0, vd, context, backcontext, width, height); 
 }
 
 ////Video processing-------------------------------------------------------------------------------------------------------------------
