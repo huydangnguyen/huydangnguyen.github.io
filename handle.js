@@ -109,7 +109,7 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
 
     
     //Xử lý frame kế tiếp
-    setTimeout(draw_and_extract_edge, 0, vd, context, backcontext, width, height); 
+    setTimeout(draw_and_extract_edge, 20, vd, context, backcontext, width, height); 
 }
 
 ////Video processing-------------------------------------------------------------------------------------------------------------------
