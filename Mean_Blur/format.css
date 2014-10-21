@@ -1,0 +1,31 @@
+
+body {
+    background: black;
+}
+
+#c1 {
+    position: absolute;
+    top: 50%;
+    right: 25%;
+    width: 400px;
+    height: 350px;
+    margin: -200px -175px 0 0;
+    
+    border-style: solid;
+    border-width: 3px;
+    border-color: white;
+}
+
+#v {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    width: 400px;
+    height: 350px;
+    margin: -200px 0 0 -175px;
+    
+    border-style: solid;
+    border-width: 3px;
+    border-color: white;
+}
+
