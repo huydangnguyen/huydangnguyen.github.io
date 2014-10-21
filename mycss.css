@@ -7,9 +7,9 @@ body {
     position: absolute;
     top: 50%;
     right: 25%;
-    width: 500px;
-    height: 400px;
-    margin: -250px -200px 0 0;
+    width: 400px;
+    height: 350px;
+    margin: -200px -175px 0 0;
     
     border-style: solid;
     border-width: 3px;
@@ -20,9 +20,9 @@ body {
     position: absolute;
     top: 50%;
     left: 25%;
-    width: 500px;
-    height: 400px;
-    margin: -250px 0 0 -200px;
+    width: 400px;
+    height: 350px;
+    margin: -200px 0 0 -175px;
     
     border-style: solid;
     border-width: 3px;
