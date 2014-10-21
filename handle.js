@@ -85,7 +85,7 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
     var iNext;
     var dx, dy;
     var step = iData.width*4;
-    for (i = 0; i < pData.length; i+=4)
+    for (i = 0; i < pData.length; i++)
     {
         if(i%4 == 3)
         {
@@ -101,8 +101,6 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
                       + (pData[i + 4] - pData[i - 4])/2
                       + (pData[iNext + 4] - pData[iNext - 4])/2,2)/3;
         rData[i] = Math.sqrt(dx + dy);
-        rData[i + 1] = rData[i];
-        rData[i + 2] = rData[i];
     }    
     
         
