@@ -129,10 +129,10 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
         iNext = i + step;
         if (rData[i] >= 0.2*max) 
         {
-            rData[i] = 255;
+            rData[i] = 0;
         }
         else
-            rData[i] = 0;
+            rData[i] = 255;
         
         rData[i + 1] = rData[i];
         rData[i + 2] = rData[i];
