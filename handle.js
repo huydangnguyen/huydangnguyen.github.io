@@ -98,7 +98,7 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
                       + 2*(pData[iNext] - pData[iPrev])
                       + pData[iNext + 4] - pData[iPrev + 4]);
         dy = Math.abs(pData[iPrev + 4] - pData[iPrev - 4]
-                      + pData[i + 4] - pData[i - 4]
+                      + 2*(pData[i + 4] - pData[i - 4])
                       + pData[iNext + 4] - pData[iNext - 4]);
         rData[i] = dx + dy;
     }    
