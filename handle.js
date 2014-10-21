@@ -85,19 +85,11 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
     var iNext;
     var dx, dy;
     var step = iData.width*4;
-    
-//    for (i=0; i<pData.length; i+=4)
-//    {                    
-//        var gray = pData[i]*0.3 + pData[i+1]*0.59 + pData[i+2]*0.11;
-//        pData[i] = gray;
-//        //pData[i+1] = gray;
-//        //pData[i+2] = gray;
-//    }
 
+    //tính đạo hàm ảnh 
     var max = 0;
     var min = 255;
-    var temp = [];
-    //temp.length = pData.length/4;
+    var temp = []; //mảng tạm lưu giá trị đạo hàm
     for (i = 0; i < pData.length; i+=4)
     {
         if(i%4 == 3)
@@ -107,20 +99,16 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
         
         iPrev = i - step;
         iNext = i + step;
-        //gray = pData[i]*0.3 + pData[i+1]*0.59 + pData[i+2]*0.11;
-//        dx = Math.abs(((pData[iNext - 4] - pData[iPrev - 4])/2
-//                      + (pData[iNext] - pData[iPrev])/2
-//                      + (pData[iNext + 4] - pData[iPrev + 4])/2)/3,2);
-//        dy = Math.pow(((pData[iPrev + 4] - pData[iPrev - 4])/2
-//                      + (pData[i + 4] - pData[i - 4])/2
-//                      + (pData[iNext + 4] - pData[iNext - 4])/2)/3,2);
-         dx = Math.pow(pData[iNext - 4] - pData[iPrev - 4]
+        
+        //đạo hàm theo phương ngang
+        dx = Math.pow(pData[iNext - 4] - pData[iPrev - 4]
                       + 2*(pData[iNext] - pData[iPrev])
                       + pData[iNext + 4] - pData[iPrev + 4],2);
+        //đạo hàm theo phương dọc
         dy = Math.pow(pData[iPrev + 4] - pData[iPrev - 4]
                       + 2*(pData[i + 4] - pData[i - 4])
                       + pData[iNext + 4] - pData[iNext - 4],2);
-        
+        //độ lớn vector gradient
         temp[i/4] = Math.sqrt(dx + dy);
         if(temp[i/4] > max)
         {
@@ -150,12 +138,6 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
         
         rData[i + 1] = rData[i];
         rData[i + 2] = rData[i];
-        
-//        rData[i] = Math.sqrt(dx + dy);
-//        if(rData[i] > max)
-//        {
-//            max = rData[i];   
-//        }
     }
     
         
