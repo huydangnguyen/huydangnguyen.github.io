@@ -82,7 +82,7 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
     } 
     
     //so ngưỡng để lấy biên
-    var threshold = 0.2*(max - min) + min;
+    //var threshold = 0.2*(max - min) + min;
     for (i = 0; i < rData.length; i+=4)
     {
          if(i%4 == 3)
@@ -91,7 +91,7 @@ function draw_and_extract_edge(vd, context, backcontext, width, height)
         }       
         
 
-        if (temp[i/4]>= threshold) 
+        if (temp[i/4] - min> 0) 
         {
             rData[i] = 255;
         }
